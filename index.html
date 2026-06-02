@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramon | UX/UI Designer</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-counter" id="counter">0</div>
+            <div class="preloader-label">Laden</div>
+        </div>
+    </div>
+
+    <div class="noise-overlay"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"><span class="cursor-text">BEKIJK</span></div>
+
+    <!-- MOBILE MENU TOGGLE -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu openen">
+        <span></span><span></span>
+    </button>
+
+    <header class="site-header">
+        <a href="#" class="logo magnetic" data-strength="20">RAMON.</a>
+        <nav class="nav-links" id="nav-links">
+            <a href="#work" class="magnetic" data-strength="20">Werk</a>
+            <a href="#about" class="magnetic" data-strength="20">Profiel</a>
+            <a href="mailto:ramongaastra@hotmail.nl" class="magnetic" data-strength="20">Contact</a>
+        </nav>
+    </header>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <section class="hero-editorial" id="hero">
+                
+                <div class="bg-grid">
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                </div>
+
+                <div class="ambient-shapes">
+                    <div class="blob blob-orange"></div>
+                    <div class="blob blob-blue"></div>
+                    <div class="blob blob-green"></div>
+                    
+                    <svg class="floating-star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="#a8e6cf" opacity="0.6"/>
+                    </svg>
+
+                    <div class="floating-circle fc-1"></div>
+                    <div class="floating-circle fc-2"></div>
+                    <svg class="floating-cross" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="20" y1="0" x2="20" y2="40" stroke="#2a3324" stroke-width="1.5" opacity="0.3"/>
+                        <line x1="0" y1="20" x2="40" y2="20" stroke="#2a3324" stroke-width="1.5" opacity="0.3"/>
+                    </svg>
+                </div>
+
+                <div class="hero-content-editorial">
+                    <div class="status-badge">
+                        <span class="badge-dot"></span>
+                        <span>UX/UI Designer &ndash; 2,5 Jaar Ervaring</span>
+                    </div>
+
+                    <h1 class="editorial-title">
+                        Ik ben Ramon <span class="inline-media headshot" style="background-image: url('assets/images/ramon-headshot.jpg');"></span>, een <span class="word-hover" data-word="designer">designer</span> die <span class="word-hover" data-word="complexe problemen">complexe problemen</span> <span class="inline-media workshot" style="background-image: url('assets/images/ramon-hero-work.jpg');"></span> vertaalt naar <span class="word-hover word-highlight" data-word="vloeiende interfaces">vloeiende, heldere interfaces.</span>
+                    </h1>
+
+                    <div class="hero-scroll-hint">
+                        <div class="scroll-line"></div>
+                        <span>Scroll</span>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- MARQUEE TICKER -->
+            <div class="marquee-strip">
+                <div class="marquee-track">
+                    <span>UX Design</span><span class="marquee-dot">✦</span>
+                    <span>UI Systems</span><span class="marquee-dot">✦</span>
+                    <span>Interaction Design</span><span class="marquee-dot">✦</span>
+                    <span>Prototyping</span><span class="marquee-dot">✦</span>
+                    <span>Design Strategy</span><span class="marquee-dot">✦</span>
+                    <span>Concepting</span><span class="marquee-dot">✦</span>
+                    <span>Figma</span><span class="marquee-dot">✦</span>
+                    <span>Visual Identity</span><span class="marquee-dot">✦</span>
+                    <span>UX Design</span><span class="marquee-dot">✦</span>
+                    <span>UI Systems</span><span class="marquee-dot">✦</span>
+                    <span>Interaction Design</span><span class="marquee-dot">✦</span>
+                    <span>Prototyping</span><span class="marquee-dot">✦</span>
+                    <span>Design Strategy</span><span class="marquee-dot">✦</span>
+                    <span>Concepting</span><span class="marquee-dot">✦</span>
+                    <span>Figma</span><span class="marquee-dot">✦</span>
+                    <span>Visual Identity</span><span class="marquee-dot">✦</span>
+                </div>
+            </div>
+
+            <section id="work" class="work">
+                
+                <article class="project-card" onclick="openCase('snn')">
+                    <div class="project-visual magnetic-wrap">
+                        <div class="visual-reveal bg-snn">
+                            <div class="mockup-ui ui-main" style="background-image: url('assets/images/snn-mockup-main.jpeg');"></div>
+                            
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">01 · Arbeidsmarktplatform / UX & UI</div>
+                        <h3 class="project-title">Werken bij SNN</h3>
+                        <p class="project-desc">Met het designteam van Alserda hebben we de recruitment-ervaring van dé subsidieverstrekker van Noord-Nederland geherdefinieerd. Van bureaucratisch naar menselijk, gedreven door impactvolle storytelling.</p>
+                        <button class="case-btn magnetic" data-strength="30">Bekijk Project <span class="arrow">→</span></button>
+                    </div>
+                </article>
+
+                <article class="project-card reverse" onclick="openCase('dakgevel')">
+                    <div class="project-visual magnetic-wrap">
+                        <div class="visual-reveal bg-dakgevel">
+                            <div class="mockup-ui ui-main dakgevel-main-shot" style="background-image: url('assets/images/dakgevel-main.jpeg');"></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">02 · Dienstenwebsite / UX &amp; UI</div>
+                        <h3 class="project-title">Dak &amp; Gevel Noord</h3>
+                        <p class="project-desc">Samen met een tweede designer hebben we de website van dit dak- en gevelbedrijf herontworpen. Een wirwar aan diensten werd één heldere structuur, gericht op vertrouwen en meer offerteaanvragen.</p>
+                        <button class="case-btn magnetic" data-strength="30">Bekijk Project <span class="arrow">→</span></button>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- ABOUT / PROFIEL SECTIE -->
+            <section id="about" class="about-section">
+                <div class="about-eyebrow">Profiel</div>
+                <div class="about-layout">
+                    <div class="about-text-col">
+                        <h2 class="about-headline">Ik geloof dat goed design onzichtbaar is, maar onvergetelijk voelt.</h2>
+                        <p class="about-body">Met 2,5 jaar ervaring in UX/UI design combineer ik strategisch denken met een scherp oog voor esthetiek. Van research en concepting tot interactieve prototypes en productierijpe design systems, ik werk graag op het snijvlak van vorm en functie.<br><br>Momenteel beschikbaar voor freelance projecten en vaste rollen.</p>
+                    </div>
+                    <div class="about-right-col">
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="2.5"><span class="stat-counter">0</span><span class="stat-plus">+</span></div>
+                                <div class="stat-label">Jaar ervaring</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="2"><span class="stat-counter">0</span></div>
+                                <div class="stat-label">Opleidingen afgerond</div>
+                            </div>
+                        </div>
+                        <div class="about-skills">
+                            <div class="skills-label">Expertise</div>
+                            <div class="skill-chips">
+                                <span class="skill-chip">UX Strategy</span>
+                                <span class="skill-chip">UI Design</span>
+                                <span class="skill-chip">Figma</span>
+                                <span class="skill-chip">Prototyping</span>
+                                <span class="skill-chip">Design Systems</span>
+                                <span class="skill-chip">User Research</span>
+                                <span class="skill-chip">Interaction Design</span>
+                                <span class="skill-chip">Spatial UI</span>
+                                <span class="skill-chip">Visual Identity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">                <div class="footer-eyebrow">Klaar om samen te bouwen?</div>
+                <h2 class="cta-title">Start een <span class="italic-serif">project</span></h2>
+                <a href="mailto:ramongaastra@hotmail.nl" class="big-mail magnetic" data-strength="50">ramongaastra@hotmail.nl</a>
+
+                <div class="footer-actions">
+                    <a href="https://linkedin.com/in/ramongaastra" target="_blank" rel="noopener" class="footer-btn footer-btn-linkedin magnetic" data-strength="25">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                        <span class="btn-arrow">↗</span>
+                    </a>
+                    <a href="assets/cv-ramon.pdf" download class="footer-btn footer-btn-cv magnetic" data-strength="25">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span>Download CV</span>
+                        <span class="btn-arrow">↓</span>
+                    </a>
+                </div>
+
+                <div class="footer-bottom">
+                    <span>© 2026 Ramon</span>
+                    <span>Ontworpen & gebouwd met aandacht</span>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <div class="case-study-page" id="case-page" data-lenis-prevent>
+        
+        <div class="bg-grid">
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+        </div>
+
+        <div class="case-header">
+            <button class="back-btn magnetic" id="close-case" data-strength="30"><span class="arrow">←</span> Terug naar overzicht</button>
+        </div>
+        
+        <div class="case-scroll-area">
+            <div class="case-hero">
+                <div class="case-ambient">
+                    <div class="case-blob case-blob-1"></div>
+                    <div class="case-blob case-blob-2"></div>
+                    <div class="case-blob case-blob-3"></div>
+                </div>
+                <div class="case-hero-image" id="detail-hero-img"></div>
+                <div class="case-hero-title-wrap">
+                    <h1 class="case-hero-title" id="detail-title">Project Naam</h1>
+                </div>
+                
+                <div class="case-above-fold-grid">
+                    <div class="case-meta-grid">
+                        <div class="meta-col"><span>Rol</span><p id="detail-role">-</p></div>
+                        <div class="meta-col"><span>Samenwerking</span><p id="detail-client">-</p></div>
+                        <div class="meta-col"><span>Jaar</span><p id="detail-year">-</p></div>
+                        <div class="meta-col"><span>Context</span><p id="detail-context">-</p></div>
+                    </div>
+                    <div class="case-intro-summary">
+                        <h3>De Uitdaging</h3>
+                        <p id="detail-challenge">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-body"></div>
+            
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
