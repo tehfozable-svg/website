@@ -9,7 +9,7 @@ const projectData = {
         role: "UX/UI Design",
         client: "Designteam Alserda",
         year: "2026",
-        liveUrl: "https://www.snn.nl/werken-bij-snn",
+        liveUrl: "https://www.snn.nl/werkenbij",
         context: "Het transformeren van een publieke instantie tot een modern werkgeversmerk.",
         challenge: "Hoe trek je toptalent aan in een oververhitte tech- en beleidsmarkt als overheidsorgaan? De oude website voelde afstandelijk en procedureel. De uitdaging was om de maatschappelijke impact van SNN tastbaar te maken. Je werkt hier niet voor de cijfers; je werkt hier aan de tastbare toekomst van Noord-Nederland.",
         colorBase: "linear-gradient(180deg, #e4ead8 0%, rgba(244, 243, 239, 0) 100%)",
@@ -77,7 +77,7 @@ const projectData = {
         role: "UX/UI Design (duo)",
         client: "Dak & Gevel Noord",
         year: "2026",
-        liveUrl: "https://www.dakgevelnoord.nl",
+        liveUrl: "https://www.dakengevelnoord.nl/",
         context: "Een dienstenwebsite voor dak- en gevelreiniging in Noord-Nederland.",
         challenge: "Dak & Gevel Noord biedt een breed pakket: reinigen, coaten, impregneren, softwash, anti-alg en torboneren, voor zowel woningen als bedrijfspanden. Al die losse diensten maakten de oude site onoverzichtelijk, waardoor bezoekers afhaakten vóór ze een offerte aanvroegen. De uitdaging: de dienstenstructuur zó helder maken dat elke bezoeker binnen enkele klikken de juiste behandeling vindt en moeiteloos een offerte aanvraagt.",
         colorBase: "linear-gradient(180deg, #dfe3e1 0%, rgba(244, 243, 239, 0) 100%)",
@@ -218,9 +218,13 @@ document.addEventListener("DOMContentLoaded", () => {
         progressBar.style.width = pct + '%';
     }, { passive: true });
 
-    // ── Lenis smooth scroll ───────────────────────────────────
+    // ── Lenis smooth scroll (alleen desktop) ─────────────────
+    // Op mobiel laten we de native scroll met rust: Lenis vecht daar
+    // tegen de browser en veroorzaakt hapering. Grootste mobiele winst.
     let lenis = null;
-    if (typeof Lenis !== 'undefined') {
+    const isDesktop = window.matchMedia('(min-width: 769px)').matches
+                      && window.matchMedia('(pointer: fine)').matches;
+    if (isDesktop && typeof Lenis !== 'undefined') {
         try {
             lenis = new Lenis({ 
                 duration: 1.4, 
@@ -236,6 +240,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ── Preloader ─────────────────────────────────────────────
     if (lenis) lenis.stop();
+    // Korter op mobiel: een lange preloader laat de site traag áánvoelen,
+    // ook als hij het niet is.
+    const fast = !isDesktop;
     const tlLoader = gsap.timeline({ 
         onComplete: () => { 
             if (lenis) lenis.start(); 
@@ -246,13 +253,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let count = { val: 0 };
     tlLoader
         .to(count, { 
-            val: 100, duration: 1.8, ease: "power4.inOut", 
+            val: 100, duration: fast ? 0.9 : 1.8, ease: "power4.inOut", 
             onUpdate: () => { 
                 const c = document.getElementById("counter"); 
                 if (c) c.innerHTML = Math.round(count.val); 
             }
         })
-        .to(".preloader", { yPercent: -100, duration: 1.2, ease: "power4.inOut" }, "-=0.3");
+        .to(".preloader", { yPercent: -100, duration: fast ? 0.7 : 1.2, ease: "power4.inOut" }, "-=0.3");
 
     // ── Interactive hero words ────────────────────────────────
     document.querySelectorAll('.word-hover').forEach(word => {
@@ -280,12 +287,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (titleEl) {
             titleEl.style.opacity = '1';
 
-            // Slide-up: text words and word-hover spans
-            const slideTargets = titleEl.querySelectorAll('.word-inner, .word-hover');
-            gsap.fromTo(slideTargets,
-                { y: '110%' },
-                { y: '0%', duration: 1.1, stagger: 0.026, ease: "power4.out", delay: 0.05 }
-            );
+            if (isDesktop) {
+                // Desktop: rijke per-woord slide-up (afhankelijk van overflow:hidden clips)
+                const slideTargets = titleEl.querySelectorAll('.word-inner, .word-hover');
+                gsap.fromTo(slideTargets,
+                    { y: '110%' },
+                    { y: '0%', duration: 1.1, stagger: 0.026, ease: "power4.out", delay: 0.05 }
+                );
+            } else {
+                // Mobiel: woorden mogen afbreken, dus de clip-slide werkt niet.
+                // We zetten de woorden meteen op hun plek en faden de titel zacht in.
+                titleEl.querySelectorAll('.word-inner, .word-hover').forEach(el => {
+                    el.style.transform = 'translateY(0)';
+                });
+                gsap.fromTo(titleEl, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" });
+            }
 
             // Fade-in: inline-media images (no clip, no slide — preserves border-radius)
             const mediaTargets = titleEl.querySelectorAll('.inline-media');
