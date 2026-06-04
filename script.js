@@ -278,14 +278,18 @@ document.addEventListener("DOMContentLoaded", () => {
     })();
 
     // ── Scroll progress bar ───────────────────────────────────
+    // Scroll-progressbalk: alleen op desktop. Op mobiel is de balk verborgen
+    // (en de constante scrollHeight-berekening kost daar onnodig werk).
     const progressBar = document.getElementById('scroll-progress');
-    window.addEventListener('scroll', () => {
-        if (!progressBar) return;
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = pct + '%';
-    }, { passive: true });
+    if (window.matchMedia('(min-width: 769px)').matches) {
+        window.addEventListener('scroll', () => {
+            if (!progressBar) return;
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        }, { passive: true });
+    }
 
     // ── Lenis smooth scroll (alleen desktop) ─────────────────
     let lenis = null;
