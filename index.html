@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramon | UX/UI Designer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"></noscript>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
@@ -82,7 +86,7 @@
                     </div>
 
                     <h1 class="editorial-title">
-                        Ik ben Ramon <span class="inline-media headshot" style="background-image: url('assets/images/ramon-headshot.jpg');"></span>, een <span class="word-hover" data-word="designer">designer</span> die <span class="word-hover" data-word="complexe problemen">complexe problemen</span> <span class="inline-media workshot"></span> vertaalt naar <span class="word-hover word-highlight" data-word="vloeiende interfaces">vloeiende, heldere interfaces.</span>
+                        Ik ben Ramon <span class="inline-media headshot" style="background-image: url('assets/images/ramon-headshot.jpg');"></span>, een <span class="word-hover" data-word="designer">designer</span> die <span class="word-hover" data-word="complexe problemen">complexe problemen</span> <span class="inline-media workshot" style="background-image: url('assets/images/ramon-hero-work.jpg');"></span> vertaalt naar <span class="word-hover word-highlight" data-word="vloeiende interfaces">vloeiende, heldere interfaces.</span>
                     </h1>
 
                     <div class="hero-scroll-hint">
@@ -127,7 +131,7 @@
                     <div class="project-content">
                         <div class="project-meta">01 · Arbeidsmarktplatform / UX & UI</div>
                         <h3 class="project-title">Werken bij SNN</h3>
-                        <p class="project-desc">Met het designteam van Alserda hebben we de recruitment-ervaring van dé subsidieverstrekker van Noord-Nederland geherdefinieerd. Van bureaucratisch naar menselijk, gedreven door impactvolle storytelling.</p>
+                        <p class="project-desc">De recruitment-ervaring van dé subsidieverstrekker van Noord-Nederland, opnieuw gedacht vanuit de kandidaat. Van bureaucratisch naar menselijk, gedreven door impactvolle storytelling.</p>
                         <button class="case-btn magnetic" data-strength="30">Bekijk Project <span class="arrow">→</span></button>
                     </div>
                 </article>
@@ -141,7 +145,22 @@
                     <div class="project-content">
                         <div class="project-meta">02 · Dienstenwebsite / UX &amp; UI</div>
                         <h3 class="project-title">Dak &amp; Gevel Noord</h3>
-                        <p class="project-desc">Samen met een tweede designer hebben we de website van dit dak- en gevelbedrijf herontworpen. Een wirwar aan diensten werd één heldere structuur, gericht op vertrouwen en meer offerteaanvragen.</p>
+                        <p class="project-desc">Een dak- en gevelbedrijf met een wirwar aan diensten, teruggebracht tot één heldere structuur. Ontworpen rond vertrouwen en gericht op meer offerteaanvragen.</p>
+                        <button class="case-btn magnetic" data-strength="30">Bekijk Project <span class="arrow">→</span></button>
+                    </div>
+                </article>
+
+
+                <article class="project-card" onclick="openCase('watiscrypto')">
+                    <div class="project-visual magnetic-wrap">
+                        <div class="visual-reveal bg-watiscrypto">
+                            <div class="mockup-ui ui-main" style="background-image: url('assets/images/watiscrypto-main.jpeg');"></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">03 · E-learning Platform / UX &amp; UI</div>
+                        <h3 class="project-title">Watiscrypto</h3>
+                        <p class="project-desc">Mijn afstudeerproject: een e-learning platform dat beginnende crypto-investeerders begeleidt van angst naar zelfvertrouwen. Van uitgebreid gebruikersonderzoek en drie persona's tot een volledig uitgewerkt high-fidelity ontwerp.</p>
                         <button class="case-btn magnetic" data-strength="30">Bekijk Project <span class="arrow">→</span></button>
                     </div>
                 </article>
@@ -154,7 +173,7 @@
                 <div class="about-layout">
                     <div class="about-text-col">
                         <h2 class="about-headline">Ik geloof dat goed design onzichtbaar is, maar onvergetelijk voelt.</h2>
-                        <p class="about-body">Met 2,5 jaar ervaring in UX/UI design combineer ik strategisch denken met een scherp oog voor esthetiek. Van research en concepting tot interactieve prototypes en productierijpe design systems, ik werk graag op het snijvlak van vorm en functie.<br><br>Momenteel beschikbaar voor freelance projecten en vaste rollen.</p>
+                        <p class="about-body">Met 2,5 jaar ervaring in UX/UI design combineer ik strategisch denken met een scherp oog voor esthetiek. Van research en concepting tot interactieve prototypes en productierijpe design systems, ik werk graag op het snijvlak van vorm en functie.<br><br>Momenteel opzoek naar een vaste aanstelling.</p>
                     </div>
                     <div class="about-right-col">
                         <div class="about-stats">
@@ -185,8 +204,8 @@
                 </div>
             </section>
 
-            <footer class="footer">                <div class="footer-eyebrow">Klaar om samen te bouwen?</div>
-                <h2 class="cta-title">Start een <span class="italic-serif">project</span></h2>
+            <footer class="footer">                <div class="footer-eyebrow">Geen ingewikkelde user flows hier.</div>
+                <h2 class="cta-title">Binnen één klik<span class="italic-serif"> contact ☻</span></h2>
                 <a href="mailto:ramongaastra@hotmail.nl" class="big-mail magnetic" data-strength="50">ramongaastra@hotmail.nl</a>
 
                 <div class="footer-actions">
@@ -248,7 +267,7 @@
                 <div class="case-above-fold-grid">
                     <div class="case-meta-grid">
                         <div class="meta-col"><span>Rol</span><p id="detail-role">-</p></div>
-                        <div class="meta-col"><span>Samenwerking</span><p id="detail-client">-</p></div>
+                        <div class="meta-col"><span>Opdrachtgever</span><p id="detail-client">-</p></div>
                         <div class="meta-col"><span>Jaar</span><p id="detail-year">-</p></div>
                         <div class="meta-col"><span>Context</span><p id="detail-context">-</p></div>
                     </div>
@@ -265,6 +284,6 @@
         </div>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3" defer></script>
 </body>
 </html>
