@@ -943,17 +943,28 @@ body.case-open .nav-toggle { opacity: 0; pointer-events: none; }
         will-change: auto;
     }
 
-    /* Floating decoraties — sterk vereenvoudigd op mobiel */
+    /* Floating decoraties — sterk vereenvoudigd op mobiel.
+
+       BELANGRIJK: op mobiel gooit de browser zware blur-lagen weg zodra ze
+       uit beeld zijn (geheugenbesparing) en rendert ze opnieuw bij terugscrollen
+       — dat zag eruit als "hero herlaadt". Daarom verbergen we de losse
+       blur-blobs volledig en schilderen we de kleuren als een STATISCHE
+       gradient direct op de hero-achtergrond. Niets om weg te gooien of
+       opnieuw te renderen → de hero blijft rotsvast bij scrollen. */
     .floating-circle.fc-1 { width: 100px; height: 100px; animation: none; }
     .floating-circle.fc-2 { display: none; }
     .floating-star { width: 44px; height: 44px; top: 10%; left: 5%; animation: none; }
     .floating-cross { display: none; }
-    .blob { filter: blur(45px); animation: none; opacity: 0.4; }
-    .blob-orange { width: 75vw; height: 75vw; }
-    .blob-blue { width: 70vw; height: 60vw; }
-    .blob-green { display: none; }
+    .blob { display: none; }
     .case-blob { filter: blur(50px); animation: none; opacity: 0.35; }
     .case-blob-3 { display: none; }
+
+    .hero-editorial {
+        background-image:
+            radial-gradient(ellipse 70% 45% at 12% 8%, rgba(255, 170, 133, 0.38) 0%, transparent 55%),
+            radial-gradient(ellipse 65% 50% at 92% 88%, rgba(163, 205, 255, 0.34) 0%, transparent 55%);
+        background-repeat: no-repeat;
+    }
 
     /* Work */
     .work { padding: 70px 20px; }
@@ -1101,7 +1112,7 @@ body.case-open .nav-toggle { opacity: 0; pointer-events: none; }
     .back-btn { backdrop-filter: none; background: rgba(244, 243, 239, 0.95); }
     .project-visual { box-shadow: 0 20px 45px rgba(42,51,36,0.12); }
     .editorial-title, .case-hero-title, .inline-media { will-change: auto; }
-    .scroll-progress { box-shadow: none; }
+    .scroll-progress { display: none; }
     /* Project card scroll-scrub animatie uit op mobiel — scrub-animaties
        vereisen constante ScrollTrigger berekeningen en zijn zwaar op telefoons */
     .visual-reveal { clip-path: inset(0% 0 0 0) !important; }
